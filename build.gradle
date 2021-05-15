@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+group 'nl.codebulb'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'nl.codebulb:daedalus-engine:1.0.0-SNAPSHOT'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+//jar {
+//    manifest {
+//        attributes "Main-Class": "nl.codebulb.onedaygame.Application",
+//        duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+//    }
+//
+//    from {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+//}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.runtimeClasspath.collect { it.getName() }.join(' '),
+                'Main-Class': 'nl.codebulb.onedaygame.Application'
+        )
+        duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it)}
+    }
+}
