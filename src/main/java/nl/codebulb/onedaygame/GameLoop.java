@@ -82,4 +82,9 @@ public class GameLoop implements DaedalusLoop {
             startScreen.onEvent(event);
         }
     }
+
+    @Override
+    public void onExit() {
+
+    }
 }
