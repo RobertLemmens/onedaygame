@@ -9,5 +9,8 @@ I made this to test out the functionality from a client perspective, to figure o
 You have to survive the waves as long as you can, by shooting the swarm of enemies coming at you.
 Move with WASD or the arrow keys, fire with the spacebar.
 
+## Goal
+Test the engine so far! I found out I still have lots to do, and performance sucks.
+
 ## Credits
 Art from Kenney Vleugels (www.kenney.nl)
